@@ -4,13 +4,57 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 
-	<title>{ifset title}{include title|stripHtml} | {/ifset}Nette Web</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="/app.css">
+	<script type="text/javascript" src="/app.js"></script>
+
+	<title>{ifset title}{include title|stripHtml} | {/ifset}Sportisimo</title>
 </head>
 
 <body>
-	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type">{$flash->message}</div>
+	<div n:foreach="$flashes as $flash" n:class="flash, $flash->type" onclick="this.remove()">{$flash->message}</div>
 
-	{include content}
+	<div class="container">
+		<div class="left-menu">
+			<div class="menu-item">
+				<i class="material-icons">menu</i>
+			</div>
+			<div class="menu-item">
+				<a href="/">
+					<i class="material-icons">dashboard</i>
+				</a>
+			</div>
+			<div class="menu-item">
+				<i class="material-icons">group</i>
+			</div>
+			<div class="menu-item">
+				<i class="material-icons">new_releases</i>
+			</div>
+			<div class="menu-item">
+				<a href="/brand">
+					<i class="material-icons">local_offer</i>
+				</a>
+			</div>
+		</div>
+		
+		<div class="middle-container">
+			<div class="header row">
+				<div class="title col s6">SRP</div>
+				<div class="user-info col s6">
+				{if $user->isLoggedIn()}
+					<a href="/logout">Odhlásit</a>
+					<span>({$user->getIdentity()->id})</span>
+				{else}
+					<a href="/login">Přihlásit</a>
+				{/if}
+				</div>
+			</div>
+
+			<div class="content-container">
+				{include content}
+			</div>
+		</div>
+	</div>
 
 	{block scripts}
 	<script src="https://nette.github.io/resources/js/3/netteForms.min.js"></script>

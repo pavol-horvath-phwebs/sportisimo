@@ -1,0 +1,34 @@
+{block content}
+
+<div class="title row">
+    <div class="col s12"><p>
+        <i class="material-icons left">arrow_back</i>
+        <a href="/brand">Značky</a>
+        <i class="material-icons tiny">chevron_right</i>
+        {$title}
+    </p></div>
+</div>
+
+<div class="box">
+    <div class="form">
+        <form action="/brand/save" method="post">
+            <div class="input-field">
+                <input type="hidden" name="id" value="{$id ?? 0}" />
+            </div>
+            <div class="input-field">
+                <input id="name" name="name" type="text" value="{$name ?? ''}" />
+                <label for="name">Název značky</label>
+            </div>
+            <div class="form-buttons">
+                <button class="btn" type="submit">
+                    Uložit
+                    <i class="material-icons left">save</i>
+                </button>
+                <a class="btn cancel" href="/brand">
+                    Zrušit
+                    <i class="material-icons left">cancel</i>
+                </a>
+            </div>
+        </form>
+    </div>
+</div>

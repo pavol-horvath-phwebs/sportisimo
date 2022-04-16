@@ -1,0 +1,145 @@
+@import "~materialize-css/sass/materialize";
+
+html, body {
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
+    font-family: "Open Sans", "Arial", "sans-serif";
+}
+
+.input-field input:focus + label {
+    color: color('light-blue', 'base') !important;
+}
+.input-field input:focus {
+    border-bottom: 1px solid color('light-blue', 'base') !important;
+    box-shadow: 0 1px 0 0 color('light-blue', 'base') !important
+}
+.btn {
+    background-color: color('light-blue', 'darken-4') !important;
+    &:hover {
+        background-color: color('light-blue', 'base') !important;
+    }
+}
+.btn.cancel {
+    background-color: color('grey', 'darken-4') !important;
+    &:hover {
+        background-color: color('grey', 'base') !important;
+    }
+}
+.flash {
+    @extend .light-blue, .white-text, .btn;
+    text-transform: none;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+}
+
+.container {
+    display: flex;
+    min-width: 100%;
+    min-height: 100%;
+
+    .left-menu {
+        @extend .light-blue, .darken-4, .white-text;
+        .menu-item {
+            padding: 10px;
+            cursor: pointer;
+            &:hover {
+                @extend .light-blue, .darken-3;
+            }
+            i {
+                cursor: pointer;
+                @extend .small;
+            }
+            a {
+                @extend .white-text;
+            }
+        }
+    }
+
+    .middle-container {
+        @extend .grey, .lighten-3;
+        width: 100%;
+
+        .header {
+            @extend .light-blue, .darken-4, .white-text, .valign-wrapper;
+            margin-bottom: 0;
+            .title {
+                font-size: xx-large;
+                padding: 5px;
+            }
+            .user-info {
+                @extend .right-align;
+                a {
+                    @extend .white-text;
+                    font-weight: bold;
+                    cursor: pointer;
+                    &:hover {
+                        @extend .light-blue-text, .text-lighten-4;
+                    }
+                }
+            }
+        }
+
+        .content-container {
+            .logo {
+                padding: 50px;
+                @extend .center-align;
+            }
+
+            .form {
+                max-width: 300px;
+                margin: auto;
+                margin-top: 50px;
+            }
+
+            .title {
+                @extend .light-blue, .white-text;
+                font-size: large;
+                font-weight: bold;
+                a {
+                    @extend .white-text;
+                }
+            }
+
+            .box {
+                @extend .white;
+                margin: 10px;
+                padding: 20px;
+
+                table {
+                    margin-top: 20px;
+                    border: 1px solid $table-border-color;
+                    tr {
+                        th {
+                            @extend .grey, .lighten-3, .grey-text;
+                            a {
+                                @extend .grey-text;
+                            }
+                        }
+                        td a {
+                            @extend .grey-text, .text-lighten-1;
+                        }
+                    }
+                }
+
+                .paggination {
+                    @extend .right-align;
+                    margin-top: 30px;
+                    .pages {
+                        margin-bottom: 5px;
+                    }
+                    a {
+                        @extend .grey-text, .text-darken-3;
+                        padding: 3px;
+                        margin-right: 2px;                        
+                        &:hover, &.active {
+                            border-bottom: 2px solid color('light-blue', 'base');
+                        }
+                    }
+                }
+            }
+        }        
+    }
+}
